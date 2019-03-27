@@ -1,0 +1,35 @@
+<?php
+
+$baseConfig['env'] = 'development'; // 'development' or 'production'
+
+$baseConfig['appName'] = 'The LightMVC Framework Skeleton Application';
+
+/*$baseConfig['doctrine']['DBAL']['dcm1'] = [
+    'driver'   => 'pdo_mysql',
+    'host'     => 'localhost',
+    'user'     => 'USERNAME',
+    'password' => 'PASSWORD',
+    'dbname'   => 'DATABASE',
+];*/
+
+$baseConfig['doctrine']['ORM']['dem1'] = [
+    'driver'   => 'pdo_mysql',
+    'host'     => 'localhost',
+    'user'     => 'USERNAME',
+    'password' => 'PASSWORD',
+    'dbname'   => 'DATABASE',
+];
+
+/*$baseConfig['atlas']['ORM']['aem1'] = [
+    'driver'   => 'mysql',
+    'host'     => 'localhost',
+    'user'     => 'USERNAME',
+    'password' => 'PASSWORD',
+    'dbname'   => 'DATABASE',
+];*/
+
+require 'routes.config.php';
+
+require 'view.config.php';
+
+require 'middleware.config.php';
