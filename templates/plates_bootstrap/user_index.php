@@ -21,7 +21,13 @@
                           You can view a list of all products!
                       </p>
                       <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
+
+
+<!--////////////////////////////////////////////////////////////////////////////////////////////-->
+                      <p><a href="<?php echo $view['urlbaseaddr'] ?>users/checkLogin" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Log in</a></p>
+<!--//////////////////////////////////////////////////////////////////////////////////////////////-->
                   </div>
+
                   <div class="col-lg-4">
                     <p><br /><img src="<?php echo $view['urlbaseaddr'] ?>img/lightmvc_logo.png" class="shadow-lg" /><br /></p>
                   </div>

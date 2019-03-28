@@ -4,12 +4,12 @@ $baseConfig['routes'] = [
     0 => [
         ['GET', 'POST'],
         '/',
-        'index',
+        'user',
     ],
     1 => [
         ['GET', 'POST'],
-        '/index[/{action}]',
-        'product',
+        '/user[/{action}]',
+        'user',
     ],
     2 => [
         ['GET', 'POST'],
@@ -32,6 +32,12 @@ $baseConfig['routes'] = [
         '/foo[/{action}]',
         'StrangeController/Controller/Foo',
     ],
+
+//    6 => [
+//        ['GET', 'POST'],
+//        '/users[/{action}]',
+//        'user',
+//    ],
 
 
 ];

@@ -34,13 +34,13 @@
     <link href="css/signin.css" rel="stylesheet">
 </head>
 <body class="text-center">
-<form class="form-signin" action= "" method="post" enctype="multipart/form-data" >
+<form class="form-signin" action= ""  method="post" enctype="multipart/form-data" >
     <h1 class="h3 mb-3 font-weight-normal"><?php echo isset($this->userMessage) ? $this->getUserMessage() : ''?></h1>
     <label for="inputUsername" class="sr-only">Username</label>
-    <input name="username" type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
+    <input name="username" type="text" id="username" class="form-control" placeholder="Username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
-    <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-    <button name="submit" value="1" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+    <input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
+    <button name="submit" value="1" class="btn btn-lg btn-primary btn-block" type="submit" form="formcheckLogin1">Sign in</button>
 <!--    <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/delete/--><?php //echo $product['id'] ?><!--">Delete</a>-->
     <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>

@@ -55,6 +55,8 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         $this->view['saved'] = 0;
 
         $this->view['error'] = 0;
+
+        $this->view['authenticated'] =0;
     }
     
     protected function readProducts($id = null)
@@ -105,7 +107,7 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
 
     public function addAction($vars)
     {
-           if (isset($view['authenticated'])){
+//           if (isset($view['authenticated'])){
 
             if (!empty($vars['post'])) {
             // Would have to sanitize and filter the $_POST array.
@@ -125,20 +127,20 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         $this->view['bodyjs'] = 1;
         $this->view['templatefile'] = 'product_add_form';
         return $this->view;
-        }
-         else{
-             echo "<font size='50px'>you are not authenticated!</font size>";
-             $this->view['bodyjs'] = 1;
-             $this->view['templatefile'] = 'product_add_form';
-             return $this->view;
-         }
-        
+//        }
+//         else{
+//             echo "<font size='50px'>you are not authenticated!</font size>";
+//             $this->view['bodyjs'] = 1;
+//             $this->view['templatefile'] = 'product_add_form';
+//             return $this->view;
+//         }
+//
 
     }
 
     public function editAction($vars)
     {
-        if (isset($view['authenticated'])){
+//        if ($this->view['authenticated']==1){
 
 
         if (!empty($vars['post'])) {
@@ -178,13 +180,13 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         $this->view['templatefile'] = 'product_edit_form';
 
         return $this->view;
-        }
-        else{
-            echo "<font size='50px'>you are not authenticated!</font size>";
-            $this->view['bodyjs'] = 1;
-            $this->view['templatefile'] = 'product_edit_form';
-            return $this->view;
-        }
+//        }
+//        else{
+//            echo "<font size='50px'>you are not authenticated!</font size>";
+//            $this->view['bodyjs'] = 1;
+//            $this->view['templatefile'] = 'product_edit_form';
+//            return $this->view;
+//        }
     }
 
     public function deleteAction($vars)
@@ -205,8 +207,10 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         }
         else{
             echo "<font size='50px'>you are not authenticated!</font size>";
-            $this->view['templatefile'] = 'product_delete';
+            $this->view['templatefile'] = 'index_index';
             return $this->view;
         }
     }
+
+
 }
