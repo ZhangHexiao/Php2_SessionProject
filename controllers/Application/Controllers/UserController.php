@@ -83,22 +83,23 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
             $userArray['password'] = (string) $vars['post']['password'];
 
             if ($this->crudService->checkLogin($userArray['username'],$userArray['password'])) {
-                $this->view['authenticated'] = true;
-                $this->view['bodyjs'] = 1;
-                $this->view['templatefile'] = 'user_index';
-                return $this->view;
+                $this->view['authenticated'] = 1;
+//                $this->view['bodyjs'] = 1;
+//                $this->view['templatefile'] = 'product_index';
+//                return $this->view;
 
             } else {
 
-                $this->view['authenticated'] = false;
-                $this->view['bodyjs'] = 1;
-                $this->view['templatefile'] = 'user_index';
-                return $this->view;
+                $this->view['authenticated'] = 0;
+//                $this->view['bodyjs'] = 1;
+//                $this->view['templatefile'] = 'product_index';
+//                return $this->view;
             }
         }
 
         $this->view['bodyjs'] = 1;
         $this->view['templatefile'] = 'user_checkLogin_form';
+//        $this->view['templatefile'] = 'user_index';
         return $this->view;
     }
 

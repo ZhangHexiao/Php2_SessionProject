@@ -66,14 +66,20 @@
     </style>
 
 <body class="text-center">
-<form class="form-signin" action= ""  method="post" enctype="multipart/form-data" >
+<form class="form-signin" action= ""  method="post" enctype="multipart/form-data" id="formcheckLogin" >
     <h1 class="h3 mb-3 font-weight-normal"><?php echo isset($this->userMessage) ? $this->getUserMessage() : ''?></h1>
     <label for="inputUsername" class="sr-only">Username</label>
     <input name="username" type="text" id="username" class="form-control" placeholder="Username" required autofocus>
     <label for="inputPassword" class="sr-only">Password</label>
     <input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
-    <button name="submit" value="1" class="btn btn-lg btn-primary btn-block" type="submit" form="formcheckLogin1">Sign in</button>
+    <button name="submit" value="1" class="btn btn-lg btn-primary btn-block" type="submit" form="formcheckLogin">Sign in</button>
 <!--    <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/delete/--><?php //echo $product['id'] ?><!--">Delete</a>-->
+    <?php if ($view['authenticated'] === 1): ?>
+        <div class="alert-success"><p>You log in successfully</p></div>
+    <?php endif ?>
+    <?php if ($view['authenticated'] === 0): ?>
+        <div class="alert-danger"><p>You have not log in, please log in.</p></div>
+    <?php endif ?>
     <p class="mt-5 mb-3 text-muted">&copy; 2019</p>
 </form>
 </body>

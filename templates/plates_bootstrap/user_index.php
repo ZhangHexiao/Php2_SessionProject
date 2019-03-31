@@ -24,7 +24,7 @@
 
 
 <!--////////////////////////////////////////////////////////////////////////////////////////////-->
-                      <p><a href="<?php echo $view['urlbaseaddr'] ?>users/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Log in</a></p>
+                      <p><a href="<?php echo $view['urlbaseaddr'] ?>users/checkLogin" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Log in</a></p>
 <!--//////////////////////////////////////////////////////////////////////////////////////////////-->
                   </div>
 
