@@ -34,7 +34,7 @@
             "Application\\Controllers\\": "controllers/Application/Controllers",
             "Application\\Services\\": "controllers/Application/Services",
             "Specialmodule\\Controllers\\": "controllers/Specialmodule/Controllers",
-            "StrangeController\\Controller\\": "StrangeController/Controller/FooController"
+            "StrangeController\\Controllers\\": "controllers/StrangeController/Controllers"
         }
     },
     "autoload-dev": {

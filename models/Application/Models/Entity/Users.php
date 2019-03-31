@@ -77,6 +77,4 @@ class Users
         $this->password = $password;
     }
 
-
-
 }

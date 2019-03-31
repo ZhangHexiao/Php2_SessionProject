@@ -5,7 +5,7 @@ namespace Application\Models\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity("Application\Models\Entity\Users")
+ * @ORM\Entity("Application\Models\Entity\Customers")
  * @ORM\Table("customers")
  */
 class Customers

@@ -1,26 +1,26 @@
 <?php
 
-
 namespace Application\Controllers;
 
-use Ascmvc\Mvc\Controller;
 use Application\Models\Entity\Users;
 use Application\Services\UsersService;
 use Application\Services\CrudProductsServiceTrait;
 use Ascmvc\AscmvcControllerFactoryInterface;
 use Ascmvc\Mvc\AscmvcEventManager;
+use Ascmvc\Mvc\Controller;
 use Ascmvc\Mvc\AscmvcEvent;
 use Pimple\Container;
 
 class UserController extends Controller implements AscmvcControllerFactoryInterface
+
 {
     use CrudProductsServiceTrait;
 
-    protected  $authenticated = false;
+//    protected  $authenticated = false;
 
     public static function factory(array &$baseConfig, &$viewObject, Container &$serviceManager, AscmvcEventManager &$eventManager)
     {
-        $serviceManager[IndexController::class] = $serviceManager->factory(function ($serviceManager) use ($baseConfig) {
+        $serviceManager[UserController::class] = $serviceManager->factory(function ($serviceManager) use ($baseConfig) {
             $em = $serviceManager['dem1'];
 
             $users = new Users();
@@ -35,6 +35,22 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
         });
     }
 
+//    public static function onBootStrap(AscmvcEvent $event){
+//
+//        $serviceManager = $event->getApplication()->getServiceManager();
+//        $serviceManager[AuthenticationService::class] = new AuthenticationService();
+////        $serviceManager[UserController::class] = new UserController();
+//    }
+//    public static function onBootStrap(AscmvcEvent $event){
+//
+//        $serviceManager = $event->getApplication()->getServiceManager();
+//        $serviceManager[AuthenticationService::class] = new AuthenticationService;
+////        $serviceManager[UserController::class] = new UserController();
+////         $serviceManager[UserController::class] = new UserController();
+//    }
+
+
+
     public function onDispatch(AscmvcEvent $event)
     {
         $this->view['saved'] = 0;
@@ -47,13 +63,13 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
     {
         $this->view['bodyjs'] = 1;
 
-        if($this->authenticated){
+//        if($this->authenticated){
+//
+//        $this->view['authenticated']= 1;
+//        }
 
-            $this->view['authenticated']= 1;
-        }
-
-//        $this->view['templatefile'] = 'user_checkLogin_form';
-          $this->view['templatefile'] = 'user_index';
+        $this->view['templatefile'] = 'user_checkLogin_form';
+//          $this->view['templatefile'] = 'user_index';
 
         return $this->view;
     }
@@ -84,6 +100,11 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
         $this->view['bodyjs'] = 1;
         $this->view['templatefile'] = 'user_checkLogin_form';
         return $this->view;
+    }
+
+    public function checkLogin()
+    {
+        return 'Your are good';
     }
 
 

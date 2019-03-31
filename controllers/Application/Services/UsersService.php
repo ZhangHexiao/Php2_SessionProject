@@ -24,7 +24,7 @@ class UsersService
 
     public function __construct(Users $users, EntityManager $em)
     {
-        $this->$users = $users;
+        $this->users = $users;
 
         $this->em = $em;
 

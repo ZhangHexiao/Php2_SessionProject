@@ -2,42 +2,41 @@
 
 $baseConfig['routes'] = [
     0 => [
-        ['GET', 'POST'],
+        'GET',
         '/',
-        'user',
+        'index',
     ],
+
     1 => [
+        'GET',
+        '/index[/{action}]',
+        'index',
+    ],
+
+    2 => [
         ['GET', 'POST'],
-        '/user[/{action}]',
+        '/users[/{action}[/{id:[0-9]+}]]',
         'user',
     ],
-    2 => [
+
+    3 => [
         ['GET', 'POST'],
         '/products[/{action}[/{id:[0-9]+}]]',
         'product',
     ],
-    3 => [
+    4 => [
         'GET',
         '/baz[/{action}]',
         'specialmodule/index',
     ],
-    4 => [
+    5 => [
         'GET',
         '/admin[/{action}]',
         'specialmodule/index',
     ],
-
-    5 => [
+    6 => [
         'GET',
         '/foo[/{action}]',
-        'StrangeController/Controller/Foo',
+        'strangeModule/foo',
     ],
-
-//    6 => [
-//        ['GET', 'POST'],
-//        '/users[/{action}]',
-//        'user',
-//    ],
-
-
 ];

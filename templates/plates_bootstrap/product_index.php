@@ -51,11 +51,7 @@
                 </tbody>
               </table>
             </div>
-
-            <?php if (isset($view['authenticated'])): ?>
-                <p><a href="<?php echo $view['urlbaseaddr'] ?>products/add" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Add new product</a></p>
-            <?php endif ?>
-
+            <p><a href="<?php echo $view['urlbaseaddr'] ?>products/add" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Add new product</a></p>
         </div> <!-- END pageBody -->
       </div>
     </div>

@@ -55,8 +55,6 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         $this->view['saved'] = 0;
 
         $this->view['error'] = 0;
-
-        $this->view['authenticated'] =0;
     }
     
     protected function readProducts($id = null)
@@ -102,14 +100,9 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         return $this->view;
     }
 
-
-
-
     public function addAction($vars)
     {
-//           if (isset($view['authenticated'])){
-
-            if (!empty($vars['post'])) {
+        if (!empty($vars['post'])) {
             // Would have to sanitize and filter the $_POST array.
             $productArray['name'] = (string) $vars['post']['name'];
             $productArray['price'] = (string) $vars['post']['price'];
@@ -121,28 +114,17 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
             } else {
                 $this->view['error'] = 1;
             }
-
-            }
+        }
 
         $this->view['bodyjs'] = 1;
+        
         $this->view['templatefile'] = 'product_add_form';
+        
         return $this->view;
-//        }
-//         else{
-//             echo "<font size='50px'>you are not authenticated!</font size>";
-//             $this->view['bodyjs'] = 1;
-//             $this->view['templatefile'] = 'product_add_form';
-//             return $this->view;
-//         }
-//
-
     }
 
     public function editAction($vars)
     {
-//        if ($this->view['authenticated']==1){
-
-
         if (!empty($vars['post'])) {
             // Would have to sanitize and filter the $_POST array.
             $productArray['id'] = (string) $vars['post']['id'];
@@ -176,41 +158,25 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         $this->view['results'] = $results;
 
         $this->view['bodyjs'] = 1;
-
+        
         $this->view['templatefile'] = 'product_edit_form';
-
+        
         return $this->view;
-//        }
-//        else{
-//            echo "<font size='50px'>you are not authenticated!</font size>";
-//            $this->view['bodyjs'] = 1;
-//            $this->view['templatefile'] = 'product_edit_form';
-//            return $this->view;
-//        }
     }
 
     public function deleteAction($vars)
     {
-        if (isset($view['authenticated'])) {
-            // Sanitize and filter the $_GET array.
-            $id = (int)$vars['get']['id'];
+		// Sanitize and filter the $_GET array.
+		$id = (int) $vars['get']['id'];
 
-            if ($this->crudService->delete($id)) {
-                $this->view['saved'] = 1;
-            } else {
-                $this->view['error'] = 1;
-            }
-
-            $this->view['templatefile'] = 'product_delete';
-
-            return $this->view;
-        }
-        else{
-            echo "<font size='50px'>you are not authenticated!</font size>";
-            $this->view['templatefile'] = 'index_index';
-            return $this->view;
-        }
+		if ($this->crudService->delete($id)) {
+			$this->view['saved'] = 1;
+		} else {
+			$this->view['error'] = 1;
+		}
+		
+		$this->view['templatefile'] = 'product_delete';
+        
+        return $this->view;
     }
-
-
 }
