@@ -10,9 +10,27 @@ class UsersRepository extends EntityRepository
 
     protected $users;
 
-    public function findAll()
+    public function findUser(string $username)
     {
-        return $this->findBy([], ['username' => 'ASC']);
+        $results = $this->findBy([], ['username' => 'ASC']);
+
+        if (is_object($results)) {
+            $nameInDB = $results->getUsername();
+
+            if(strcmp($username,$nameInDB)==0){
+                return $results;
+            }
+        }
+        else {
+            for ($i = 0; $i < count($results); $i++) {
+                $nameInDB =$results[$i]->getUsername();
+                if(strcmp($username,$nameInDB)==0){
+                    return $results[$i];
+                }
+
+            }
+        }
+        return null;
     }
 
     public function save(array $usersArray, $users = null)

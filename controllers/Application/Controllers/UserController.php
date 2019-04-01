@@ -79,8 +79,11 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
 
         if (!empty($vars['post'])) {
             // Would have to sanitize and filter the $_POST array.
-            $userArray['username'] = (string) $vars['post']['username'];
-            $userArray['password'] = (string) $vars['post']['password'];
+            $userArray['username'] = (string)$vars['post']['username'];
+            $userArray['password'] = (string)$vars['post']['password'];
+
+
+
 
             if ($this->crudService->checkLogin($userArray['username'],$userArray['password'])) {
                 $this->view['authenticated'] = 1;
@@ -99,14 +102,11 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
 
         $this->view['bodyjs'] = 1;
         $this->view['templatefile'] = 'user_checkLogin_form';
-//        $this->view['templatefile'] = 'user_index';
+
         return $this->view;
     }
 
-    public function checkLogin()
-    {
-        return 'Your are good';
-    }
+
 
 
 
