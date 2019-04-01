@@ -40,10 +40,14 @@
                             <td><?php echo $product['description'] ?></td>
                             <td><?php echo $product['image'] ?></td>
                             <td>
-                                <a href="<?php echo $view['urlbaseaddr'] ?>products/edit/<?php echo $product['id'] ?>">Modify</a>
+  <!-- ***************************************Modified link******************************************************************************-->
+                                <!--                                <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/edit/--><?php //echo $product['id'] ?><!--">Modify</a>-->
+ <!-- ***************************************Modified link******************************************************************************-->
                             </td>
                             <td>
-                                <a href="<?php echo $view['urlbaseaddr'] ?>products/delete/<?php echo $product['id'] ?>">Delete</a>
+<!-- ***************************************Modified link******************************************************************************-->
+<!--                                <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/delete/--><?php //echo $product['id'] ?><!--">Delete</a>-->
+<!-- ***************************************Modified link******************************************************************************-->
                             </td>
                         </tr>
                       <?php endforeach; ?>
@@ -51,11 +55,10 @@
                 </tbody>
               </table>
             </div>
-<!-- ***************************************Modified button******************************************************************************-->
+<!-- ***************************************Modified link******************************************************************************-->
+<!--            <p><a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/add" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Add new product</a></p>-->
+<!-- ***************************************Modified  link******************************************************************************-->
 
-            <p><a href="<?php echo $view['urlbaseaddr'] ?>products/add" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Add new product</a></p>
-
-<!-- ***************************************Modified button******************************************************************************-->
             <p><a href="<?php echo $view['urlbaseaddr'] ?>users/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Back</a></p>
         </div> <!-- END pageBody -->
       </div>

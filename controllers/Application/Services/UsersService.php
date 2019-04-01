@@ -86,9 +86,20 @@ class UsersService
             return false;
         }
 
-        $passwordVerified = password_verify($password, $users->getPassword());
+        try {
+            if (isset($users)) {
+                $passwordVerified = password_verify($password, $users->getPassword());
+                return $passwordVerified;
+            }
+        } catch (\Exception $e) {
+            return false;
+        }
 
-        return $passwordVerified;
+
+
+//        $passwordVerified = password_verify($password, $users->getPassword());
+
+        return false;
 
 
     }

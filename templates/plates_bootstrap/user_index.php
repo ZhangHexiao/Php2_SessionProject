@@ -20,12 +20,28 @@
                       <p class="text-md md:text-lg text-grey-dark leading-normal">
                           You can view a list of all products!
                       </p>
-                      <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
+
+<!-- ***************************************View Product as Manager***********************************************************************************************-->
+                      <?php if (!isset($view['authenticated'])): ?>
+                      <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index_viewOnly" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
+                      <?php endif ?>
+<!-- ***************************************Add Log in link******************************************************************************************************-->
+
+ <!-- ***************************************View Product as Manager***********************************************************************************************-->
+                      <?php if (isset($view['authenticated'])): ?>
+                       <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
+                      <?php endif ?>
+ <!-- ***************************************Add Log in link******************************************************************************************************-->
 
 
-<!--////////////////////////////////////////////////////////////////////////////////////////////-->
+ <!-- ***************************************Add Log in link******************************************************************************************************-->
+                      <?php if (!isset($view['authenticated'])): ?>
                       <p><a href="<?php echo $view['urlbaseaddr'] ?>users/checkLogin" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Log in</a></p>
-<!--//////////////////////////////////////////////////////////////////////////////////////////////-->
+                      <?php endif ?>
+ <!-- ***************************************Modified button******************************************************************************************************-->
+
+
+
                   </div>
 
                   <div class="col-lg-4">

@@ -73,6 +73,7 @@
     <label for="inputPassword" class="sr-only">Password</label>
     <input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
     <button name="submit" value="1" class="btn btn-lg btn-primary btn-block" type="submit" form="formcheckLogin">Sign in</button>
+    <p><a href="<?php echo $view['urlbaseaddr'] ?>users/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Back</a></p>
 <!--    <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/delete/--><?php //echo $product['id'] ?><!--">Delete</a>-->
     <?php if ($view['authenticated'] === 1): ?>
         <div class="alert-success"><p>You log in successfully</p></div>

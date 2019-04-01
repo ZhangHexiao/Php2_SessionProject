@@ -32,23 +32,6 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         });
     }
 
-    /*public function onDispatch(AscmvcEvent $event)
-    {
-        $array = [
-            'firstname' => 'Andrew',
-            'lastname' => 'Caya',
-            'age' => 42,
-        ];
-
-        $response = new Response();
-        $response->getBody()->write(json_encode($array));
-        $response = $response
-            ->withStatus(200)
-            ->withHeader('Content-Type', 'application/json')
-            ->withAddedHeader('X-Custom-Header', 'it works');
-
-        return $response;
-    }*/
 
     public function onDispatch(AscmvcEvent $event)
     {
@@ -99,6 +82,31 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
         
         return $this->view;
     }
+
+
+    public function index_viewOnlyAction($vars = null)
+    {
+        $results = $this->readProducts();
+
+        if (is_object($results)) {
+            $results = [$this->hydrateArray($results)];
+        } elseif (is_array($results)) {
+            for ($i = 0; $i < count($results); $i++) {
+                $results[$i] = $this->hydrateArray($results[$i]);
+            }
+        } else {
+            $results['nodata'] = 'No results';
+        }
+
+        $this->view['bodyjs'] = 1;
+
+        $this->view['results'] = $results;
+
+        $this->view['templatefile'] = 'product_index_viewOnly';
+
+        return $this->view;
+    }
+
 
     public function addAction($vars)
     {

@@ -12,11 +12,8 @@ use Ascmvc\Mvc\AscmvcEvent;
 use Pimple\Container;
 
 class UserController extends Controller implements AscmvcControllerFactoryInterface
-
 {
     use CrudProductsServiceTrait;
-
-//    protected  $authenticated = false;
 
     public static function factory(array &$baseConfig, &$viewObject, Container &$serviceManager, AscmvcEventManager &$eventManager)
     {
@@ -35,20 +32,16 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
         });
     }
 
-//    public static function onBootStrap(AscmvcEvent $event){
-//
+//    public static function onBootstrap(AscmvcEvent $event)
+//    {
 //        $serviceManager = $event->getApplication()->getServiceManager();
-//        $serviceManager[AuthenticationService::class] = new AuthenticationService();
-////        $serviceManager[UserController::class] = new UserController();
-//    }
-//    public static function onBootStrap(AscmvcEvent $event){
 //
-//        $serviceManager = $event->getApplication()->getServiceManager();
-//        $serviceManager[AuthenticationService::class] = new AuthenticationService;
-////        $serviceManager[UserController::class] = new UserController();
-////         $serviceManager[UserController::class] = new UserController();
+//        if($this->view['authenticated']===1){
+//
+//        $serviceManager['authenticated'] = 1;}
+//
+//        return  $serviceManager['authenticated'];
 //    }
-
 
 
     public function onDispatch(AscmvcEvent $event)
@@ -57,8 +50,9 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
 
         $this->view['error'] = 0;
 
-        $this->view['authenticated'] =0;
+        $this->view['authenticated'] =null;
     }
+
     public function indexAction($vars = null)
     {
         $this->view['bodyjs'] = 1;
@@ -68,7 +62,7 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
 //        $this->view['authenticated']= 1;
 //        }
 
-        $this->view['templatefile'] = 'user_checkLogin_form';
+        $this->view['templatefile'] = 'user_index';
 //          $this->view['templatefile'] = 'user_index';
 
         return $this->view;
@@ -86,7 +80,11 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
 
 
             if ($this->crudService->checkLogin($userArray['username'],$userArray['password'])) {
+
                 $this->view['authenticated'] = 1;
+                $this->view['bodyjs'] = 1;
+                $this->view['templatefile'] = 'user_index';
+                return $this->view;
 //                $this->view['bodyjs'] = 1;
 //                $this->view['templatefile'] = 'product_index';
 //                return $this->view;
@@ -94,11 +92,17 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
             } else {
 
                 $this->view['authenticated'] = 0;
+                $serviceManager['authenticated'] = 0;
 //                $this->view['bodyjs'] = 1;
 //                $this->view['templatefile'] = 'product_index';
 //                return $this->view;
             }
         }
+
+        if ($this->view['authenticated'] ===1){
+            $serviceManager['authenticated'] = 1;
+        }
+
 
         $this->view['bodyjs'] = 1;
         $this->view['templatefile'] = 'user_checkLogin_form';
