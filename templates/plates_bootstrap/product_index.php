@@ -51,12 +51,13 @@
                 </tbody>
               </table>
             </div>
-<!-- ***************************************Modified button******************************************************************************-->
+
 
             <p><a href="<?php echo $view['urlbaseaddr'] ?>products/add" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Add new product</a></p>
 
-<!-- ***************************************Modified button******************************************************************************-->
+<!-- ***************************************Add back link******************************************************************************-->
             <p><a href="<?php echo $view['urlbaseaddr'] ?>users/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Back</a></p>
+<!-- ***************************************Add back link******************************************************************************-->
         </div> <!-- END pageBody -->
       </div>
     </div>

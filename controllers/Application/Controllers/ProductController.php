@@ -119,8 +119,6 @@ class ProductController extends Controller implements AscmvcControllerFactoryInt
 
             if ($this->crudService->create($productArray)) {
                 $this->view['saved'] = 1;
-//                $this->indexAction();
-//                return $this->view;
             } else {
                 $this->view['error'] = 1;
             }

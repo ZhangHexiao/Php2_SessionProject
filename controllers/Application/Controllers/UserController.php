@@ -32,17 +32,6 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
         });
     }
 
-//    public static function onBootstrap(AscmvcEvent $event)
-//    {
-//        $serviceManager = $event->getApplication()->getServiceManager();
-//
-//        if($this->view['authenticated']===1){
-//
-//        $serviceManager['authenticated'] = 1;}
-//
-//        return  $serviceManager['authenticated'];
-//    }
-
 
     public function onDispatch(AscmvcEvent $event)
     {
@@ -57,13 +46,7 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
     {
         $this->view['bodyjs'] = 1;
 
-//        if($this->authenticated){
-//
-//        $this->view['authenticated']= 1;
-//        }
-
         $this->view['templatefile'] = 'user_index';
-//          $this->view['templatefile'] = 'user_index';
 
         return $this->view;
     }
@@ -76,37 +59,18 @@ class UserController extends Controller implements AscmvcControllerFactoryInterf
             $userArray['username'] = (string)$vars['post']['username'];
             $userArray['password'] = (string)$vars['post']['password'];
 
-
-
-
             if ($this->crudService->checkLogin($userArray['username'],$userArray['password'])) {
 
                 $this->view['authenticated'] = 1;
                 $this->view['bodyjs'] = 1;
                 $this->view['templatefile'] = 'user_index';
                 return $this->view;
-//                $this->view['bodyjs'] = 1;
-//                $this->view['templatefile'] = 'product_index';
-//                return $this->view;
 
-            } else {
-
-                $this->view['authenticated'] = 0;
-                $serviceManager['authenticated'] = 0;
-//                $this->view['bodyjs'] = 1;
-//                $this->view['templatefile'] = 'product_index';
-//                return $this->view;
             }
         }
 
-        if ($this->view['authenticated'] ===1){
-            $serviceManager['authenticated'] = 1;
-        }
-
-
         $this->view['bodyjs'] = 1;
         $this->view['templatefile'] = 'user_checkLogin_form';
-
         return $this->view;
     }
 

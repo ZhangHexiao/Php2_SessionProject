@@ -41,7 +41,7 @@
                             <td><?php echo $product['image'] ?></td>
                             <td>
   <!-- ***************************************Modified link******************************************************************************-->
-                                <!--                                <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/edit/--><?php //echo $product['id'] ?><!--">Modify</a>-->
+ <!--                                <a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/edit/--><?php //echo $product['id'] ?><!--">Modify</a>-->
  <!-- ***************************************Modified link******************************************************************************-->
                             </td>
                             <td>
