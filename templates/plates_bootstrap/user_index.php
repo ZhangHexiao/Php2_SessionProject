@@ -21,20 +21,22 @@
                           You can view a list of all products!
                       </p>
 
-<!-- ***************************************View Product as Visitor***********************************************************************************************-->
-                      <?php if (!isset($view['authenticated'])): ?>
-                      <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index_viewOnly" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
-                      <?php endif ?>
-<!-- ***************************************************************************************************************************************************-->
-
- <!-- ***************************************View Product as Manager***********************************************************************************************-->
-                      <?php if (isset($view['authenticated'])): ?>
-                       <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
-                      <?php endif ?>
+<!-- *********************************Hexiao' Code******View Product as Visitor******use the authenticate to link to different page *****************************************************************************************-->
+<!--                      --><?php //if (!isset($view['authenticated'])): ?>
+<!--                      <p><a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/index_viewOnly" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>-->
+<!--                      --><?php //endif ?>
+<!--                      --><?php //if (isset($view['authenticated'])): ?>
+<!--                       <p><a href="--><?php //echo $view['urlbaseaddr'] ?><!--products/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>-->
+<!--                      --><?php //endif ?>
  <!-- **************************************************************************************************************************************************************-->
 
- <!-- ***************************************Add Log in link******************************************************************************************************-->
-                      <?php if (!isset($view['authenticated'])): ?>
+
+<!-- *********************************Andrew' Code******use authenticated variable to show the button or link *****************************************************************************************-->
+
+                          <p><a href="<?php echo $view['urlbaseaddr'] ?>products/index" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">View products</a></p>
+
+<!-- ***************************************Add Log in link******************************************************************************************************-->
+                      <?php if ($view['authenticated'] !== true): ?>
                       <p><a href="<?php echo $view['urlbaseaddr'] ?>users/checkLogin" class="mt-6 inline-block bg-white text-black no-underline px-4 py-3 shadow-lg">Log in</a></p>
                       <?php endif ?>
  <!-- **********************************************************************************************************************************************************************-->

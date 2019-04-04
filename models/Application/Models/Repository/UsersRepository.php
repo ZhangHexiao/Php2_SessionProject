@@ -14,6 +14,13 @@ class UsersRepository extends EntityRepository
     {
         $results = $this->findBy([], ['username' => 'ASC']);
 
+//   ***************ASCCode from Anderw(Much simpler and efficient)**************
+
+//        return $this->findBy(['username' => $username], ['id' => 'ASC']);
+
+//   ***************ASCCode from Anderw***************************************
+
+
         if (is_object($results)) {
             $nameInDB = $results->getUsername();
 
